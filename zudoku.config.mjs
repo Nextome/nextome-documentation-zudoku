@@ -9,6 +9,10 @@ const config = {
     { id: "mobile", label: "Mobile SDK" },
     { id: "catalog", label: "Rest API" },
   ],
+  catalog: {
+    navigationId: "catalog",
+    label: "API Catalog",
+  },
   sidebar: {
     intro: [
       {
