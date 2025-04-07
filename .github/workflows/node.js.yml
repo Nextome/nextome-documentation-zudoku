@@ -5,9 +5,9 @@ name: Release doc
 
 on:
   push:
-    branches: [ "prod " ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "prod" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.x, 22.x]
+        node-version: [22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -30,7 +30,7 @@ jobs:
     - name: Build project
       run: npm run build --if-present
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
+      uses: actions/upload-pages-artifact@v3
       with:
         path: ./build
   deploy:
