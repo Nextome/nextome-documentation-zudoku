@@ -3,6 +3,7 @@ import CenteredImage from './src/CenteredImage';
 import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill"
 
 const config = {
+  basePath: "/nextome-documentation-zudoku",
   topNavigation: [
     { id: "intro", label: "General" },
     { id: "guides", label: "Guides" },
