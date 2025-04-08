@@ -7,11 +7,11 @@ const config = {
     { id: "intro", label: "General" },
     { id: "guides", label: "Guides" },
     { id: "mobile", label: "Mobile SDK" },
-    { id: "catalog", label: "Rest API" },
+    { id: "api", label: "Web API" },
   ],
   catalog: {
     navigationId: "catalog",
-    label: "API Catalog",
+    label: "Rest API",
   },
   sidebar: {
     intro: [
@@ -54,15 +54,33 @@ const config = {
         label: "Nextome Map View",
         items: ["mobile/mapview/introduction"]
       },
+    ],
+    api:[
+      {
+        type: "link",
+        label: "Andromeda",
+        href: "andromeda-api",
+      },
+      {
+        type: "link",
+        label: "Nextostats",
+        href: "stats-api",
+      }
     ]
   },
+  apis: [
+    {
+      type: "url",
+      input: "https://dev.api.nextome.dev/v3/api-docs",
+      navigationId: "andromeda-api"
+    },
+    {
+      type: "file",
+      input: "apis/nextostats.json",
+      navigationId: "stats-api"
+    }
+  ],
   redirects: [{ from: "/", to: "/introduction/index" }, { from: "mobile", to: "/mobile/localization/introduction" }],
-  apis: [{
-    type: "url",
-    input: "https://dev.api.nextome.dev/v3/api-docs",
-    navigationId: "andromeda-api",
-    categories: [{ label: "General", tags: ["Operational"] }],
-  }],
   docs: {
     files: "/pages/**/*.{md,mdx}",
   },
@@ -115,6 +133,7 @@ const config = {
   },
   page: {
     logo: {
+      pageTitle: "Nextome Documentation",
       src: {
         light: "assets/logo.png", //"https://nextome.com/documents/20125/0/logo.svg/b5b78aec-f915-7bec-bf67-da9ab302bb63",
         dark: "assets/logo-white.svg" // "https://nextome.com/documents/20125/0/logo.svg/b5b78aec-f915-7bec-bf67-da9ab302bb63"
@@ -132,6 +151,13 @@ const config = {
       termSimilarity: 1.2,
       termSaturation: 1.2,
     },
+  },
+  metadata: {
+    title: "Nextome Documentation",
+    description: "Documentation for Nextome system, technology and APIs",
+    logo: "https://nextome.com/documents/20125/0/logo.svg/b5b78aec-f915-7bec-bf67-da9ab302bb63",
+    favicon: "https://nextome.com/myfavicon.ico",
+    applicationName: "Nextome"
   }
 };
 
