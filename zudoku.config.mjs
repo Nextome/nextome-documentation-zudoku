@@ -1,6 +1,8 @@
 /** @type {import('zudoku').ZudokuConfig} */
 import CenteredImage from './src/CenteredImage';
+import CodeBlockMultiLang from './src/CodeBlockMultiLang';
 import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "zudoku/ui/Tabs";
 
 const config = {
   topNavigation: [
@@ -41,8 +43,80 @@ const config = {
     mobile: [
       {
         type: "category",
+        label: "About Mobile SDKs",
+        items: ["mobile/aboutmobilesdks/introduction"]
+      },
+      {
+        type: "category",
         label: "Nextome Localization SDK",
-        items: ["mobile/localization/introduction"]
+        items: [
+          {
+            type: "doc",
+            label: "Introduction",
+            id: "mobile/localization/introduction"
+          },
+          {
+            type: "doc",
+            label: "Setting up",
+            id: "mobile/localization/setting-up"
+          },
+          {
+            type: "doc",
+            label: "Android Setting-up",
+            id: "mobile/localization/android-setting-up"
+          },
+          {
+            type: "doc",
+            label: "iOS Setting-up",
+            id: "mobile/localization/ios-setting-up"
+          },
+          {
+            type: "doc",
+            label: "Basic features",
+            id: "mobile/localization/basic-features"
+          },
+          {
+            type: "category",
+            label: "Other features",
+            items: [
+              {
+                type: "doc",
+                label: "Events",
+                id: "mobile/localization/other-features/events"
+              },
+              {
+                type: "doc",
+                label: "Force venue",
+                id: "mobile/localization/other-features/force-venue"
+              },
+              {
+                type: "doc",
+                label: "Initial resources",
+                id: "mobile/localization/other-features/initial-resources"
+              },
+              {
+                type: "doc",
+                label: "Navigation",
+                id: "mobile/localization/other-features/navigation"
+              },
+              {
+                type: "doc",
+                label: "Venue Data",
+                id: "mobile/localization/other-features/venue-data"
+              },
+              {
+                type: "doc",
+                label: "Override Settings",
+                id: "mobile/localization/other-features/override-settings"
+              },
+              {
+                type: "doc",
+                label: "Use in background",
+                id: "mobile/localization/other-features/use-background"
+              },
+            ]
+          }
+        ]
       },
       {
         type: "category",
@@ -129,7 +203,7 @@ const config = {
       }
   },
   mdx: {
-    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill },
+    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill, Tabs, TabsContent, TabsList, TabsTrigger, CodeBlockMultiLang},
   },
   page: {
     logo: {

@@ -1,5 +1,5 @@
 
-# Nextome SDK Documentation
+# Introduction
 
 ![Nextome Android SDK Cover](/assets/cover.png)
 
