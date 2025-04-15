@@ -121,12 +121,100 @@ const config = {
       {
         type: "category",
         label: "Nextome Proximity SDK",
-        items: ["mobile/proximity/introduction"]
+        items: [
+          {
+            type: "doc",
+            label: "Introduction",
+            id: "mobile/proximity/introduction"
+          },
+          {
+            type: "doc",
+            label: "Android Setting-up",
+            id: "mobile/proximity/android-setting-up"
+          },
+          {
+            type: "doc",
+            label: "iOS Setting-up",
+            id: "mobile/proximity/ios-setting-up"
+          },
+          {
+            type: "doc",
+            label: "Basic features",
+            id: "mobile/proximity/basic-features"
+          },
+          {
+            type: "doc",
+            label: "Interaction model",
+            id: "mobile/proximity/interaction-model"
+          },
+        ]
       },
       {
         type: "category",
         label: "Nextome Map View",
-        items: ["mobile/mapview/introduction"]
+        items: [
+          {
+            type: "doc",
+            label: "Introduction",
+            id: "mobile/mapview/introduction"
+          },
+          {
+            type: "doc",
+            label: "Android setting-up",
+            id: "mobile/mapview/android-setting-up"
+          },
+          {
+            type: "doc",
+            label: "iOS setting-up",
+            id: "mobile/mapview/ios-setting-up"
+          },
+          {
+            type: "category",
+            label: "Usage",
+            items: [
+              {
+                type: "doc",
+                label: "The Controller",
+                id: "mobile/mapview/usage/controller"
+              }, 
+              {
+                type: "doc",
+                label: "Initialize",
+                id: "mobile/mapview/usage/initialize"
+              }, 
+              {
+                type: "doc",
+                label: "Events",
+                id: "mobile/mapview/usage/events"
+              },     
+              {
+                type: "doc",
+                label: "Tiles",
+                id: "mobile/mapview/usage/manage-tiles"
+              },          
+              {
+                type: "doc",
+                label: "Layers",
+                id: "mobile/mapview/usage/manage-layers"
+              },    
+              {
+                type: "doc",
+                label: "Markers",
+                id: "mobile/mapview/usage/manage-markers"
+              },          
+              {
+                type: "doc",
+                label: "Enums",
+                id: "mobile/mapview/usage/enums"
+              }
+            ]
+          },
+          {
+            type: "doc",
+            label: "Complete Example",
+            id: "mobile/mapview/example"
+          }
+        ]
       },
     ],
     api:[

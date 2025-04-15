@@ -1,9 +1,4 @@
----
-title: Introduction
-hide:
-  - footer
----
-# NEXTOME MAPVIEW DOCUMENTATION
+# Introduction
 
 The Nextome MapView is the basic UI component used to show the map and the informations on a them.
 

@@ -33,8 +33,9 @@ In our Portal, you can create an **Interaction** to define the behavior of proxi
 
 Android and iOS operative system, adopts some rescritions on Bluetooth usage in background to preserve battery life. Each OS have different behaviors about that.
 
-!!! warning "Both platform, Region limitation"
+:::warning{title="Both platform, region limitation"}
     In our SDK, **an area is defined by UUID Beacon attribute only** so, if 2 beacon are installed so closely and their signal area intersects each other, the operative system will fire 1 Enter Region only. If the signal of first catched beacon is lost and the signal of second beacon is still receiving, the operative system will translate this as "ok, you are still in the region so nothing changes for me", this means that no Region Event will be fired.
+:::
 
 ### Android limitations
 
@@ -45,8 +46,9 @@ The Bluetooth background service has a huge limit instead. Starting from Android
 Therefore Bluetooth scanner is active for a few seconds every ~15 minutes. In this interval it searches for nearby Bluetooth devices. 
 **So, always keep in mind that timely recognition of beacons is not guaranteed with Android.**
 
-!!! info "Check what you can do to prevent Android kill action"
+:::info{title="Check what you can do to prevent Android kill action"}
     If you want to deactivate some os limitation on the smartphone, please check [Don't kill my app](https://dontkillmyapp.com/) website.
+:::
 
 An alternative way to avoid this limitation is to use an **Android Foreground Service** which allows you to constantly listen to the beacons (it is called Ranging) but it is a heavy process with an high battery power consumption, and the user is constantly notified that the service is running and can stop at any time. At today, foreground service is not supported yet in our Proximity SDK but it is planned.
 

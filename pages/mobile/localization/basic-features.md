@@ -1,6 +1,6 @@
 # Basic Features
 
-In this section you can find some basic use of the Localization SDKs such as:
+In this section you can find some basic use of the Localization SDK such as:
 - Start localization
 - Stop localization
 - Observe the SDK status
@@ -317,7 +317,7 @@ Nextome SDK offers an observable to listen to user position updates:
     | `venueId: Int32`   | The venueId of the venue found.                                              |
     | `mapId: Int32`     | The mapId (floor) of the computed position.                                  |
     | `label: String?`   | A label associated with the position (see [label in additional features]()). |
-    
+
 
 ## Observe errors
 Nextome SDK uses different types of exceptions to report errors:
