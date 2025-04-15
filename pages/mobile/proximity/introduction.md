@@ -1,8 +1,6 @@
----
-title: Introduction
-hide:
-  - footer
----
+<ExperimentalBanner functionalityName="Proximity SDK"/>
+
+# Introduction
 
 ![Nextome Android SDK Cover](/assets/cover.png)
 

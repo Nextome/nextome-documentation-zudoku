@@ -147,6 +147,4 @@ let nextomeSdk = NextomeLocalizationSdk.Builder(
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel).
 
 
-<br></br>
-
 **© 2025 Nextome srl | All Rights Reserved.**

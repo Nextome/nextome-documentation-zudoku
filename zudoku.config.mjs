@@ -1,8 +1,9 @@
 /** @type {import('zudoku').ZudokuConfig} */
 import CenteredImage from './src/CenteredImage';
 import CodeBlockMultiLang from './src/CodeBlockMultiLang';
-import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill"
+import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "zudoku/ui/Tabs";
+import {ExperimentalBanner} from "./src/ExperimentalBanner";
 
 const config = {
   topNavigation: [
@@ -121,6 +122,7 @@ const config = {
       {
         type: "category",
         label: "Nextome Proximity SDK",
+        icon: "flask-conical",
         items: [
           {
             type: "doc",
@@ -291,7 +293,7 @@ const config = {
       }
   },
   mdx: {
-    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill, Tabs, TabsContent, TabsList, TabsTrigger, CodeBlockMultiLang},
+    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill, Tabs, TabsContent, TabsList, TabsTrigger, CodeBlockMultiLang, ExperimentalBanner},
   },
   page: {
     logo: {

@@ -2,11 +2,22 @@
 
 Tra qui
 
-<SyntaxHighlight language="typescript">
-  for (let i = 0; i < Infinity; i++) {
-    console.log(i);
-  }
-</SyntaxHighlight>
+<div>
+  <SyntaxHighlight 
+    language="typescript"
+    code="this is the code"
+    wrapLines = "false"
+    title = "Questo è il titolo"
+    showCopy = "never"
+    showCopyText= "false"
+    children="this is a children"
+    showLanguageIndicator="true"
+    noBackground="true">
+    {`for (let i = 0; i < Infinity; i++) {
+      console.log(i);
+    }`}
+  </SyntaxHighlight>
+</div>
 
 e qui
 
