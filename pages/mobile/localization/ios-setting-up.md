@@ -20,7 +20,7 @@ A full working example app is available on [this repository](https://github.com/
 :::
 
 :::warning
-    The Nextome Localizaition is build with XCode command line **15.2** but can be integrated in an XCode project
+    The Nextome Localizaition is build with XCode command line **15.2** but can be integrated in an XCode 16+ project
 :::
 
 ## How to include
@@ -141,10 +141,7 @@ let nextomeSdk = NextomeLocalizationSdk.Builder(
 :::
 
 ## Next steps
-- See [Start Localization](../start-localization.md) to use Nextome SDK.
+- See [Start Localization](/mobile/localization/basic-features) to use Nextome SDK.
 
 ## Examples
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel).
-
-
-**© 2025 Nextome srl | All Rights Reserved.**

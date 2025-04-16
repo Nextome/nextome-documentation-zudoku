@@ -1,4 +1,4 @@
-# Background service
+# Background service (Android only)
 
 :::warning
     This is available on **Android only**, using Foreground Services. **The iOS SDK not provide a background functionality**. 

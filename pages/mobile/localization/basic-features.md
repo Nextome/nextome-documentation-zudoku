@@ -10,6 +10,20 @@ In this section you can find some basic use of the Localization SDK such as:
 ## Start localization
 To start localization, call:
 
+<CodeBlockMultiLang 
+language="kotlin"
+code={
+`nextomeSdk.start()`}/>
+
+    :::tip{title="Background Mode"}
+        On Android, Nextome can also keep track of user indoor position while the phone screen is off or the app is in background. For more info, explore the corresponding section [here](Android/background-service.md).
+    :::
+
+<CodeBlockMultiLang 
+language="swift"
+code={
+`nextomeSdk.start())`}/>
+
 === "Android"
     ```kotlin
     nextomeSdk.start()
@@ -18,6 +32,7 @@ To start localization, call:
     :::tip{title="Background Mode"}
         On Android, Nextome can also keep track of user indoor position while the phone screen is off or the app is in background. For more info, explore the corresponding section [here](Android/background-service.md).
     :::
+
 
 === "iOS"
     ```swift
@@ -376,10 +391,10 @@ It is possible to observe errors using `getErrorsObservable()`:
 - Visit [Nextome map integration](nextome-map-integration.md) if you want to use our library to display the indoor map.
 
 ## Examples
+
+:::danger
+    TODO - Le white label utilizzando ancora la vecchia implementazione della mapview. Bisogna aggiornale a quella nuova.
+:::
+
 A full working example app is available on [iOS](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel) and [android](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
-
-
-<br></br>
-
-**© 2025 Nextome srl | All Rights Reserved.**

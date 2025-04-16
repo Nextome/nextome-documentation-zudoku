@@ -19,7 +19,7 @@ export function ExperimentalBanner({functionalityName}) {
                     The <span style={{color:"#661199", fontWeight:"bold"}}>{functionalityName}</span> functionality is <span style={{color:"#661199", fontWeight:"bold"}}>EXPERIMENTAL</span> and subject to changes.
                     <br></br>This functionality is currently in an early stage of development and may not be stable.
                     <br></br>It is available for testing and feedback purposes only.
-                    <br></br>rWe encourage developers to try it out and report any bugs, unexpected behavior, or suggestions for improvement. 
+                    <br></br>We encourage developers to try it out and report any bugs, unexpected behavior, or suggestions for improvement. 
                     </span>
             </div>
         </div>        

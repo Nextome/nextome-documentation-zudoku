@@ -3,10 +3,10 @@
 
 ![Nextome Android SDK Cover](/assets/cover.png)
 
-Nextome mobile SDKs consist of three elements:
-- Mobile SDKs for localization services
-- Mobile SDKs for proximity services
-- Mobile MapView tool to visualize informations on a map
+Nextome mobile SDKs consist of main three elements:
+- Mobile SDK for **Localization** services
+- Mobile SDK for **Proximity** services
+- Mobile SDK for **MapView** tool to visualize informations on a map
 
 ## Very important to know
 

@@ -129,12 +129,13 @@ It requires the `application context`, the given `Client` and `Secret Key`.
 
 ## Next steps
 
-- See [Start Localization](../start-localization.md) to use Nextome SDK.
+- See [Start Localization](/mobile/localization/basic-features) to use Nextome SDK.
 
 ## Examples
+
+:::danger
+    TODO - Le white label utilizzando ancora la vecchia implementazione della mapview. Bisogna aggiornale a quella nuova.
+:::
+
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.
-
-<br></br>
-
-**© 2025 Nextome srl | All Rights Reserved.**

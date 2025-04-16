@@ -1,9 +1,9 @@
 /** @type {import('zudoku').ZudokuConfig} */
 import CenteredImage from './src/CenteredImage';
 import CodeBlockMultiLang from './src/CodeBlockMultiLang';
+import {ExperimentalBanner} from "./src/ExperimentalBanner";
 import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "zudoku/ui/Tabs";
-import {ExperimentalBanner} from "./src/ExperimentalBanner";
 
 const config = {
   topNavigation: [

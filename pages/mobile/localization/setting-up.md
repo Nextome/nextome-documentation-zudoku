@@ -2,6 +2,43 @@
 
 Tra qui
 
+<CodeBlockMultiLang 
+language="kotlin"
+code={
+`val x = 2
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> print("x is neither 1 nor 2")
+}
+// x == 2`}/>
+
+<CodeBlockMultiLang 
+language="swift"
+code={
+`let count = 1...10
+for number in count {
+    print("Number is \(number)")
+}`}/>
+
+<CodeBlockMultiLang 
+language="gradle"
+code={
+`let count = 1...10
+for number in count {
+    print("Number is \(number)")
+}`}/>
+
+<CodeBlockMultiLang 
+language="groovy"
+code={
+`let count = 1...10
+for number in count {
+    print("Number is \(number)")
+}`}/>
+
+<!-- <CenteredImage src={"/assets/Technologies and tools/1.png"} caption={"Figure 1: Smartphone tracking architecture"} /> -->
+
 <div>
   <SyntaxHighlight 
     language="typescript"
@@ -20,6 +57,36 @@ Tra qui
 </div>
 
 e qui
+
+
+<Tabs groupId="linguaggio">
+  <TabsList>
+    <TabsTrigger value="Android">Android</TabsTrigger>
+    <TabsTrigger value="iOS">iOS</TabsTrigger>
+  </TabsList>
+  <TabsContent value="Android">
+<CodeBlockMultiLang 
+language="kotlin"
+code={
+`val x = 2
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> print("x is neither 1 nor 2")
+}
+// x == 2`}/>
+  </TabsContent>
+  <TabsContent value="iOS">
+<CodeBlockMultiLang 
+language="swift"
+code={
+`let count = 1...10
+for number in count {
+    print("Number is \(number)")
+}`}/>
+</TabsContent>
+</Tabs>
+
 
 <Tabs groupId="linguaggio">
   <TabsList>
