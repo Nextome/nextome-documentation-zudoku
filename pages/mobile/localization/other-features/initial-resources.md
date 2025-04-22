@@ -9,52 +9,50 @@ Please, update the version number incrementally when updating the zip file other
 
 1. Add the resource in the root directory of the project
 
-    === "Android"
-        ![Initial resources assets](/assets/initialResourceAndroid.png)
-         ```kotlin
-            nextomeSdk = NextomeLocalizationSdk(
-                clientId = CLIENT_ID,
-                clientSecret = CLIENT_SECRET,
-                initialData = AssetResource(name = "name.zip", venueId: myVenueId, version = 1))
-         ```
-    === "iOS"
-        ![Initial resources assets](/assets/initialResource.png)
-        ```swift 
-            nextomeSdk = NextomeLocalizationSdk.Builder(clientId: CLIENT_ID, clientSecret: CLIENT_SECRET)
-                    .setInitialData(nextomeResource: AssetResource(name: "resources.zip", venueId: myVenueId, version: 2))
-                    .build()
-        ```
+For Android:
+![Initial resources assets](/assets/initialResourceAndroid.png)
+
+For iOS:
+![Initial resources assets](/assets/initialResource.png)
+
 
 2. Initialize the SDK with an Asset Resource
 
-=== "Android"
-      ```kotlin
-        nextomeSdk = NextomePhoenixSdk(
-            clientId = CLIENT_ID,
-            clientSecret = CLIENT_SECRET,
-            initialData = AssetResource(name = "name.zip", venueId: myVenueId, version = 1))
-      ```
-=== "iOS"
-      ```swift 
-            nextomeSdk = NextomeLocalizationSdk.Builder(clientId: CLIENT_ID, clientSecret: CLIENT_SECRET)
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `nextomeSdk = NextomeLocalizationSdk(
+                clientId = CLIENT_ID,
+                clientSecret = CLIENT_SECRET,
+                initialData = AssetResource(name = "name.zip", venueId: myVenueId, version = 1))`
+  },
+  {
+    language: "swift",
+    code: `nextomeSdk = NextomeLocalizationSdk.Builder(clientId: CLIENT_ID, clientSecret: CLIENT_SECRET)
                     .setInitialData(nextomeResource: AssetResource(name: "resources.zip", venueId: myVenueId, version: 2))
-                    .build()
-      ```
-
+                    .build()`
+  }
+]
+}/>
 
 If you don't want to bundle the initial data inside the `assets` folder (for example to download it from an API) you can pass the local path by using the `LocalResource` instead of `AssetResource`.
 
-=== "Android"
-    ``` kotlin
-        nextomeSdk = NextomeLocalizationSdk(
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `nextomeSdk = NextomeLocalizationSdk(
         clientId = CLIENT_ID,
         clientSecret = CLIENT_SECRET,
         initialData = LocalResource(path = LOCAL_PATH, venueId: myVenueId,  version = 1)
-        )
-    ```
-=== "iOS"
-    ```swift
-        nextomeSdk = NextomeLocalizationSdk.Builder(clientId: CLIENT_ID, clientSecret: CLIENT_SECRET)
+        )`
+  },
+  {
+    language: "swift",
+    code: `nextomeSdk = NextomeLocalizationSdk.Builder(clientId: CLIENT_ID, clientSecret: CLIENT_SECRET)
         .setInitialData(nextomeResource: LocalResource(name: LOCAL_PATH, venueId: myVenueId, version: 2))
-        .build()
-    ```
+        .build()`
+  }
+]
+}/>

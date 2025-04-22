@@ -1,0 +1,81 @@
+import Ciao from "./android-setting-up.md"
+
+# SETTING UP YOUR PROJECT
+
+## ZUDOKU DEFAULT CODE BLOCK WITH SyntaxHighlight
+
+<div>
+  <SyntaxHighlight 
+    language="typescript"
+    code="this is the code"
+    wrapLines = "false"
+    title = "Questo è il titolo"
+    showCopy = "never"
+    showCopyText= "false"
+    children="this is a children"
+    showLanguageIndicator="true"
+    noBackground="true">
+    {`for (let i = 0; i < Infinity; i++) {
+      console.log(i);
+    }`}
+  </SyntaxHighlight>
+</div>
+
+## CUSTOM SINGLE CODE BLOCK EXAMPLE
+
+<CustomCodeBlock 
+filename="file.kt"
+language="kotlin"
+code={
+`val x = 2
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> print("x is neither 1 nor 2")
+}
+// x == 2`}/>
+
+
+## CUSTOM MULTI CODE TAB EXAMPLE
+
+<MultilangCodeTab content={
+[
+  {
+    filename: "file.kt",
+    language: "kotlin",
+    code: `var i = 0`
+  },
+  {
+    filename: "file.swift",
+    language: "swift",
+    code: `let i = 0`
+  }
+]
+}/>
+
+
+## TAB USED TO LOAD .MD CONTENT (WORK ON MDX FILES)
+
+Click on tab Android to load content for MD. 
+If you wanna an default opened page, add  **defaultValue="Android"** in **Tabs** tag.
+
+<Tabs>
+  <TabsList>
+    <TabsTrigger value="Android">Android</TabsTrigger>
+    <TabsTrigger value="iOS">iOS</TabsTrigger>
+    <TabsTrigger value="React">React</TabsTrigger>
+    <TabsTrigger value="Flutter">Flutter</TabsTrigger>
+  </TabsList>
+  <TabsContent value="Android">
+    <Ciao/>
+  </TabsContent>
+  <TabsContent value="iOS">
+    This is for iOS
+  </TabsContent>
+    <TabsContent value="React">
+    This is for Ionic
+  </TabsContent>
+    <TabsContent value="Flutter">
+    This is for Ionic
+  </TabsContent>
+</Tabs>

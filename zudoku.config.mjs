@@ -1,6 +1,7 @@
 /** @type {import('zudoku').ZudokuConfig} */
 import CenteredImage from './src/CenteredImage';
-import CodeBlockMultiLang from './src/CodeBlockMultiLang';
+import CustomCodeBlock from './src/CustomCodeBlock';
+import {MultilangCodeTab} from './src/MultilangCodeTab';
 import {ExperimentalBanner} from "./src/ExperimentalBanner";
 import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "zudoku/ui/Tabs";
@@ -293,7 +294,7 @@ const config = {
       }
   },
   mdx: {
-    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill, Tabs, TabsContent, TabsList, TabsTrigger, CodeBlockMultiLang, ExperimentalBanner},
+    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill, Tabs, TabsContent, TabsList, TabsTrigger, CustomCodeBlock, ExperimentalBanner, MultilangCodeTab},
   },
   page: {
     logo: {

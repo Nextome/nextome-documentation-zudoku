@@ -20,64 +20,77 @@ A full working example app is available on [this repository](https://github.com/
 
 1. Add our repositories in the Gradle Project Settings `settings.gradle.kts`:
 
-``` groovy title="settings.gradle"
-        
-        dependencyResolutionManagement {
-            repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-            repositories {
-                ...
 
-                google()
-                mavenCentral()
-                maven {
-                    url "https://packages.nextome.dev/artifactory/nextome-libs-prod/"
-
-                    credentials {
-                        username "USERNAME"
-                        password "PASSWORD"
-                    }
+<MultilangCodeTab content={
+[
+  {
+    filename: "settings.gradle.kts",
+    language: "gradle-kotlin",
+    code: `dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            ...
+            google()
+            mavenCentral()
+            maven {
+                url = uri("https://packages.nextome.dev/artifactory/nextome-libs-prod/")
+                credentials {
+                    username = "USERNAME"
+                    password = "PASSWORD"
                 }
             }
         }
-```
-
-``` kotlin title="settings.gradle.kts"
-    
-        dependencyResolutionManagement {
-            repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-            repositories {
-                ...
-
-                google()
-                mavenCentral()
-                maven {
-                    url = uri("https://packages.nextome.dev/artifactory/nextome-libs-prod/")
-
-                    credentials {
-                        username = "USERNAME"
-                        password = "PASSWORD"
-                    }
+    }`
+  },
+  {
+    filename: "settings.gradle",
+    language: "gradle-groovy",
+    code: `dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            ...
+            google()
+            mavenCentral()
+            maven {
+                url "https://packages.nextome.dev/artifactory/nextome-libs-prod/"
+                credentials {
+                    username "USERNAME"
+                    password "PASSWORD"
                 }
             }
         }
-```
+    }`
+  }
+]
+}/>
+
 
 2. In your module (app-level) Gradle file, add the dependency for the SDK:
 
-
-``` groovy title="project/build.gradle"
-    implementation 'com.nextome.localization:nextome_localization:{last_version}'
-```
-
-``` kotlin title="project/build.gradle.kts"
-    implementation ("com.nextome.localization:nextome_localization:{last_version}")
-```
+<MultilangCodeTab content={
+[
+  {
+    filename: "build.gradle",
+    language: "gradle-kotlin",
+    code: `implementation ("com.nextome.localization:nextome_localization:{last_version}")`
+  },
+  {
+    filename: "build.gradle",
+    language: "gradle-groovy",
+    code: `implementation 'com.nextome.localization:nextome_localization:{last_version}'`
+  }
+]
+}/>
 
     Check latest released version [here](../Android/changelog.md)
 
 ## Required permissions
 To run, Nextome SDK requires the following permissions:
-```xml title="AndroidManifest.xml"
+
+<CustomCodeBlock 
+filename="AndroidManifest.kt"
+language="xml"
+code={`
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -98,8 +111,8 @@ To run, Nextome SDK requires the following permissions:
     
     <!-- needed for background localization -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-```
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />`
+}/>
 
 :::note 
     The app integrating Nextome needs to ask the appropriate permissions and make sure they are accepted by the user.
@@ -113,12 +126,12 @@ It requires the `application context`, the given `Client` and `Secret Key`.
     It is possible to generate or invalidate a given Client and Secret Key using our [web frontend](#retreive-client-and-secret-key).
 :::
 
-```kotlin
-    nextomeSdk = NextomeLocalizationSdk(
-        clientId = CLIENT_ID,
-        clientSecret = CLIENT_SECRET
-    )
-```
+<CustomCodeBlock 
+language="kotlin"
+code={`nextomeSdk = NextomeLocalizationSdk(
+    clientId = CLIENT_ID,
+    clientSecret = CLIENT_SECRET
+)`}/>
 
 :::warning
     By default the SDK works with settings defined on the web frontend.<br></br>

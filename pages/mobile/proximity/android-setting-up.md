@@ -21,31 +21,12 @@
 
 1. Add our repositories in the Gradle Project Settings `settings.gradle.kts`:
 
-    === "Groovy"
-        ``` groovy title="settings.gradle"
-        
-        dependencyResolutionManagement {
-            repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-            repositories {
-                ...
-
-                google()
-                mavenCentral()
-                maven {
-                    url "https://packages.nextome.dev/artifactory/nextome-sdk-experimental-android-local/"
-
-                    credentials {
-                        username "USERNAME"
-                        password "PASSWORD"
-                    }
-                }
-            }
-        }
-        ```
-    === "KTS"
-        ``` kotlin title="settings.gradle.kts"
-    
-        dependencyResolutionManagement {
+<MultilangCodeTab content={
+[
+  {
+    filename: "settings.gradle.kts",
+    language: "gradle-kotlin",
+    code: `dependencyResolutionManagement {
             repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
             repositories {
                 ...
@@ -61,27 +42,59 @@
                     }
                 }
             }
-        }
-        ```
+        }`
+  },
+  {
+    filename: "settings.gradle",
+    language: "gradle-groovy",
+    code: `dependencyResolutionManagement {
+            repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+            repositories {
+                ...
+
+                google()
+                mavenCentral()
+                maven {
+                    url "https://packages.nextome.dev/artifactory/nextome-sdk-experimental-android-local/"
+
+                    credentials {
+                        username "USERNAME"
+                        password "PASSWORD"
+                    }
+                }
+            }
+        }`
+  }
+]
+}/>
+
 
 2. In your module (app-level) Gradle file, add the dependency for the SDK:
 
-    === "Groovy"
+<MultilangCodeTab content={
+[
+  {
+    filename: "build.gadle",
+    language: "gradle-kotlin",
+    code: `implementation ("com.nextome:nextome_proximity:{last_version}")`
+  },
+  {
+    filename: "build.gradle",
+    language: "gradle-groovy",
+    code: `implementation 'com.nextome:nextome_proximity:{last_version}'`
+  }
+]
+}/>
 
-        ``` groovy title="project/build.gradle"
-        implementation 'com.nextome:nextome_proximity:{last_version}'
-        ```
-
-    === "KTS"
-
-        ``` kotlin title="project/build.gradle.kts"
-        implementation ("com.nextome:nextome_proximity:{last_version}")
-        ```
-    Check latest released version [here](../Android/changelog.md)
+Check latest released version [here](../Android/changelog.md)
 
 ## Required permissions
 To run, Nextome SDK requires the following permissions:
-```xml title="AndroidManifest.xml"
+
+<CustomCodeBlock 
+filename="AndroidManifest.kt"
+language="xml"
+code={`
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -100,8 +113,8 @@ To run, Nextome SDK requires the following permissions:
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
-```
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />`
+}/>
 
 :::note 
     The app integrating Nextome needs to ask the appropriate permissions and make sure they are accepted by the user.
@@ -131,9 +144,9 @@ if it has been killed.
     ```
 :::
 
-```kotlin
-
-...
+<CustomCodeBlock 
+language="kotlin"
+code={`...
 import com.nextome.proximity.NextomeProximitySdk
 import com.nextome.sdk.androidproximityapp.DiModules.appModule
 ...
@@ -150,15 +163,9 @@ class DemoProximityApplication: Application() {
         }
         ...
     }
-}
-```
+}`
+}/>
 
 ## Next steps
 
 - See [Start Proximity](../Basic%20Features/start-proximity.md) to use Nextome Proximity SDK.
-
-<!--## Examples
-A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
-<br>-->
-
-**© 2024 Nextome srl | All Rights Reserved.**

@@ -11,23 +11,32 @@ It must be set from the portal in the appropriate section.
 
 The `NextomeInteraction` class is described below. 
 
-=== "Android"
 
-| Property             | Description                          | Default |
-| :--------------------| :----------------------------------- | :-------
-| `id: Int?`   | The id of the interaction   | null |
-| `name: String?`  | The name of the interaction | null |
-| `genericContent: String?`   | A generic content provided by our portal   | null |
-| `contents: List<NextomeInteractionContent>?`| A list of contents provided by our portal | null |
+<div style={{backgroundColor:"transparent", padding:"12px", border: "1px solid #aaaaaa", borderRadius: "12px"}}>
+<Tabs defaultValue="Android">
+  <TabsList>
+    <TabsTrigger value="Android">Android</TabsTrigger>
+    <TabsTrigger value="iOS">iOS</TabsTrigger>
+  </TabsList>
+  <TabsContent value="Android">
+    | Property             | Description                          | Default |
+    | :--------------------| :----------------------------------- | :-------
+    | `id: Int?`   | The id of the interaction   | null |
+    | `name: String?`  | The name of the interaction | null |
+    | `genericContent: String?`   | A generic content provided by our portal   | null |
+    | `contents: List<NextomeInteractionContent>?`| A list of contents provided by our portal | null |
+  </TabsContent>
+  <TabsContent value="iOS">
+    | Property             | Description                          | Default |
+    | :--------------------| :----------------------------------- | :-------
+    | `id: Int?`   | The id of the interaction   | null |
+    | `name: String?`  | The name of the interaction | null |
+    | `genericContent: String?`   | A generic content provided by our portal   | null |
+    | `contents: List<NextomeInteractionContent>?`| A list of contents provided by our portal | null | 
+  </TabsContent>
+</Tabs>
+</div>
 
-=== "iOS"
-
-| Property             | Description                          | Default |
-| :--------------------| :----------------------------------- | :-------
-| `id: Int?`   | The id of the interaction   | null |
-| `name: String?`  | The name of the interaction | null |
-| `genericContent: String?`   | A generic content provided by our portal   | null |
-| `contents: List<NextomeInteractionContent>?`| A list of contents provided by our portal | null | 
 
 If you need to transport custom informations you can use just genericContent. 
 If you need to specify informations for different languages you can use contents field.
@@ -36,29 +45,34 @@ If you need to specify informations for different languages you can use contents
 
 The `NextomeInteractionContent` class is described below
 
-=== "Android"
-
-| Property             | Description                          | Default |
-| :--------------------| :----------------------------------- | :-------
-| `id: Int?`   | The id of the interaction content   | null |
-| `language: String?`  | The language | null |
-| `content: String?`   | A specific content provided by our portal for specified language   | null |
-| `image: String?`   | A specific image url provided by our portal for specified language    | null |
-| `link: String?`   | A specific link provided by our portal for specified language    | null |
-| `displayLink: String?`   | The text placeholder for provided link | null |
-
-=== "iOS"
-
-| Property             | Description                          | Default |
-| :--------------------| :----------------------------------- | :-------
-| `id: Int?`   | The id of the interaction content   | null |
-| `language: String?`  | The language | null |
-| `content: String?`   | A specific content provided by our portal for specified language   | null |
-| `image: String?`   | A specific image url provided by our portal for specified language    | null |
-| `link: String?`   | A specific link provided by our portal for specified language    | null |
-| `displayLink: String?`   | The text placeholder for provided link | null |
-
-
+<div style={{backgroundColor:"transparent", padding:"12px", border: "1px solid #aaaaaa", borderRadius: "12px"}}>
+<Tabs defaultValue="Android">
+  <TabsList>
+    <TabsTrigger value="Android">Android</TabsTrigger>
+    <TabsTrigger value="iOS">iOS</TabsTrigger>
+  </TabsList>
+  <TabsContent value="Android">
+    | Property             | Description                          | Default |
+    | :--------------------| :----------------------------------- | :-------
+    | `id: Int?`   | The id of the interaction content   | null |
+    | `language: String?`  | The language | null |
+    | `content: String?`   | A specific content provided by our portal for specified language   | null |
+    | `image: String?`   | A specific image url provided by our portal for specified language    | null |
+    | `link: String?`   | A specific link provided by our portal for specified language    | null |
+    | `displayLink: String?`   | The text placeholder for provided link | null |
+  </TabsContent>
+  <TabsContent value="iOS">
+    | Property             | Description                          | Default |
+    | :--------------------| :----------------------------------- | :-------
+    | `id: Int?`   | The id of the interaction content   | null |
+    | `language: String?`  | The language | null |
+    | `content: String?`   | A specific content provided by our portal for specified language   | null |
+    | `image: String?`   | A specific image url provided by our portal for specified language    | null |
+    | `link: String?`   | A specific link provided by our portal for specified language    | null |
+    | `displayLink: String?`   | The text placeholder for provided link | null |
+  </TabsContent>
+</Tabs>
+</div>
 
 :::note
     If you want to always show a specific indoor map and enable the localization only for a specific venue you can combine `Initial resources` and `Force specific venue` functionality.

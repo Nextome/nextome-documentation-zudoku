@@ -124,9 +124,11 @@ Add these permissions in the `info.plist`:
 
 First import the Proximity SDK Module
 
-```swift
-import NextomeProximity
-```
+<CustomCodeBlock 
+language="swift"
+code={`import NextomeProximity`
+}/>
+
 
 Then initialize the NextomeProximitySdk. 
 Initialize the Nextome Proximity SDK inside ```application(_:didFinishLaunchingWithOptions:)``` method in your AppDelegate class like below.
@@ -135,8 +137,9 @@ if it has been killed.
 
 It requires the given `Client` and `Secret Key`.
 
-```swift
-...
+<CustomCodeBlock 
+language="swift"
+code={`...
 import NextomeProximity
 ...
 
@@ -152,8 +155,8 @@ class AppDelegate: UIApplicationDelegate {
         ...       
     }
     ...
-}
-```
+}`
+}/>
 
 :::note
     By default the SDK works with settings defined in the web portal.
@@ -170,6 +173,3 @@ class AppDelegate: UIApplicationDelegate {
 
 ## Examples
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel).
-
-
-**© 2023 Nextome srl | All Rights Reserved.**

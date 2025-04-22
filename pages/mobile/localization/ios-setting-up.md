@@ -120,19 +120,23 @@ Add these permissions in the `info.plist`:
 
 ## SDK Initialization
 Firsty import the Nextome Localization SDK Module
-```swift
-import NextomeLocalization
-```
+
+<CustomCodeBlock 
+language="swift"
+code={`import NextomeLocalization`}/>
+
 
 Then initialize the NextomeLocalizationSdk.
 
 It requires the given `Client` and `Secret Key`.
 
-```swift
-let nextomeSdk = NextomeLocalizationSdk.Builder(
+<CustomCodeBlock 
+language="swift"
+code={`let nextomeSdk = NextomeLocalizationSdk.Builder(
     clientId: CLIENT_ID, 
-    clientSecret: CLIENT_SECRET).build()
-```
+    clientSecret: CLIENT_SECRET).build()`
+}/>
+
 
 :::note
     By default the SDK works with settings defined in the web portal.

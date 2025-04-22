@@ -5,12 +5,14 @@ The object `NextomeVenueData` contains the complete venue data and some methods 
 ### Venue data while observing state
 A `NextomeVenueData` object could be retreived in `getStateObservable when Nextome SDK is in the states `FindFloorState` or `LocalizationRunningState`.
 
-=== "Android"
-    ```kotlin
-    nextomeSdk.getStateObservable().asLiveData().observe(this) { state ->
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `nextomeSdk.getStateObservable().asLiveData().observe(this) { state ->
         when (state) {
             is LocalizationRunningState -> { 
-             updateState("Showing map of floor ${state.mapId}...")
+             updateState("Showing map of floor \${state.mapId}...")
             
              val venueData = state.venueData
              val currentMap = state.mapId
@@ -29,11 +31,11 @@ A `NextomeVenueData` object could be retreived in `getStateObservable when Nexto
              val settings = venueData.settings
             }
         }
-    }
-    ```
-=== "iOS"
-    ```swift
-    let watcher = nextomeSdk.getStateObservable().watch(block: {state in
+    }`
+  },
+  {
+    language: "swift",
+    code: `let watcher = nextomeSdk.getStateObservable().watch(block: {state in
     guard let state = state else {return }
     
     if let runningState = state as? LocalizationRunningState{
@@ -54,8 +56,10 @@ A `NextomeVenueData` object could be retreived in `getStateObservable when Nexto
     
         let settings = venueData.settings
        
-    }
-    ```
+    }`
+  }
+]
+}/>
 
 ### Query venue data
 It is also possible to query venue data while Nextome SDK is not running calling `nextomeSdk.getVenueData(venueId)`.
@@ -73,9 +77,11 @@ It is also possible to query venue data while Nextome SDK is not running calling
     available, the method will throw an exception.
 :::
 
-=== "Android"
-    ```kotlin
-    val venueData: NextomeVenueData = nextomeSdk.getVenueData(venueId = myVenueId)
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `val venueData: NextomeVenueData = nextomeSdk.getVenueData(venueId = myVenueId)
     
     val allMaps = venueData.maps
     
@@ -88,11 +94,11 @@ It is also possible to query venue data while Nextome SDK is not running calling
     val path = venueData.path
     val pathNodesOfMap = venueData.getPathNodesOfMapId(mapId)
     
-    val settings = venueData.settings
-    ```
-=== "iOS"
-    ```swift
-    nextomeSdk.getVenueData(venueId: myVenueId, completionHandler: {data, error in
+    val settings = venueData.settings`
+  },
+  {
+    language: "swift",
+    code: `nextomeSdk.getVenueData(venueId: myVenueId, completionHandler: {data, error in
         guard error == nil else { return }
         guard let venueData = data else { return }
         
@@ -108,5 +114,7 @@ It is also possible to query venue data while Nextome SDK is not running calling
         let pathNodesOfMap = venueData.getPathNodesOfMapId(mapId: mapId)
         
         let settings = venueData.settings
-    })
-    ```
+    })`
+  }
+]
+}/>

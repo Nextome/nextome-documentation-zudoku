@@ -9,32 +9,34 @@ Nextome SDK will continue running even if the hosting app is in background or cl
 
 ## Start foreground service
 To start Nextome SDK with a Foreground Service, use the following code **instead of** `nextomeSdk.start()`
-```kotlin
-    nextomeSdk.startWithBackgroundService(serviceCode, NMNotification())
-```
+
+<CustomCodeBlock 
+language="kotlin"
+code={`nextomeSdk.startWithBackgroundService(serviceCode, NMNotification())`}/>
 
 ### Customize ongoing notification
 Android requires an ongoing notification to notify the user of running foreground services.
 It is possible to customize Nextome's notification calling `startWithBackgroundService` with a custom `NMNotification`
 
-```kotlin
-  val notification = NMNotification(
+<CustomCodeBlock 
+language="kotlin"
+code={`val notification = NMNotification(
             title = "Scanning for Beacons",
             description = "Nextome Service is running...",
             icon = R.drawable.ic_outline_location_on_24,
             channelId = "com.nextome.localization.service",
             channelName = "Localization Notifications")
 
-    nextomeSdk.startWithBackgroundService(42, notification)
-```
+    nextomeSdk.startWithBackgroundService(42, notification)`}/>
 
 <CenteredImage src={"/assets/foreground_service_notification.png"} caption={"Figure 1: Foreground notification"} />
 
 ## Stop foreground service
 To stop Nextome's foreground service, use
-```kotlin
-    nextomeSdk.stopBackgroundService(context)
-```
+
+<CustomCodeBlock 
+language="kotlin"
+code={`nextomeSdk.stopBackgroundService(context)`}/>
 
 ## Get service state
 It is possible to query or observe Nextome service state to be notified when the service starts or stops.
@@ -42,19 +44,19 @@ It is possible to query or observe Nextome service state to be notified when the
 ### Query state
 Will return true if Nextome is running either in normal mode or with a foreground service.
 
-```kotlin
-    val isServiceRunning = NextomeLocalizationSdk.isRunning()
-```
+<CustomCodeBlock 
+language="kotlin"
+code={`val isServiceRunning = NextomeLocalizationSdk.isRunning()`}/>
 
 ### Observe state
 Will emit true **only** if Nextome is running with a foreground service.
 It this emits false, Nextome could be still running if started in normal mode with `nextomeSdk.start()`.
 
-```kotlin
-    NextomeLocalizationSdk.isBackgroundServiceRunningObservable(context).collect { running ->
+<CustomCodeBlock 
+language="kotlin"
+code={`NextomeLocalizationSdk.isBackgroundServiceRunningObservable(context).collect { running ->
         Log.e(TAG, "Nextome running in background: $running")
-    }
-```
+    }`}/>
 
 ### Example
 For example, if at app start Nextome is already running in background, it is possible to skip calling `start()`.
@@ -63,8 +65,9 @@ It is in fact safe to reattach all the observers and start receiving localizatio
 In this case, if Nextome is already running in background, the app will receive positions as soon as it is started,
 because Nextome SDK will skip the initial state machine phases (Searching venue, getting packet, finding floor...).
 
-```kotlin
-    override fun onCreate(savedInstanceState: Bundle?) {
+<CustomCodeBlock 
+language="kotlin"
+code={`override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
         if (!NextomeLocalizationSdk.isRunning()) {
@@ -80,6 +83,4 @@ because Nextome SDK will skip the initial state machine phases (Searching venue,
         nextomeSdk.getLocalizationObservable().collect {
             lastPosition = it
         }
-    }
-
-```
+    }`}/>
