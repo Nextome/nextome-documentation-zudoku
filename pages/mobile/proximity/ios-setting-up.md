@@ -64,7 +64,6 @@ Then it is necessary to configure our Spec Repo.
     platform :ios, '14.0'
 
     source 'https://github.com/CocoaPods/Specs.git'
-    source 'https://github.com/Nextome/SpecsExperimental'
 
     use_frameworks!
 
@@ -74,10 +73,11 @@ Then it is necessary to configure our Spec Repo.
     ```
 
     :::note
-        Since SDK is still in RC CocoaPods require to specify the version explicitly like this
+        If you want to use a specified SDK the version, explicitly it like this
         ```swift
-            pod 'NextomeProximity', '1.0.0-rc1'
+            pod 'NextomeProximity', '{latest_version}'
         ```
+        See latest version at bottom of this page in the section **Latest version**
     :::
 
 7. Install the pods, then open your .xcworkspace file to see the project in Xcode
@@ -168,8 +168,11 @@ class AppDelegate: UIApplicationDelegate {
     If during build phase you encounter an error like this ```error: Sandbox: rsync.samba(86184) deny(1) file-write-create /Users/...../Frameworks/SSZipArchive.framework/SSZipArchive.bundle```, then go to build settings of your project, search for ENABLE_USER_SCRIPT_SANDBOXING property and set it to 'NO'
 :::
 
-## Next steps
-- See [Start Proximity](../Basic%20Features/start-proximity.md) to use Nextome SDK.
 
-## Examples
-A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel).
+## Latest version
+
+Latest available version is **1.0.2** released on Mar 04 2025
+
+## Next steps
+- See [Start Proximity](/mobile/proximity/basic-features) to use Nextome Proximity SDK.
+

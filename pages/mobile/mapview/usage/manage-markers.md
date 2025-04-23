@@ -49,9 +49,12 @@ Add a Marker to an existing layer called "LayerA"
     );
     ```
 -->
-=== "Android"
-    ```kotlin
-    var marker: NMMarker = NMMarker()
+
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `  var marker: NMMarker = NMMarker()
     marker.id = "1234"
     marker.x = 1000.0
     marker.y = 1000.0
@@ -61,11 +64,11 @@ Add a Marker to an existing layer called "LayerA"
     marker.sourceType = NMSourceType.FILESYSTEM
 
     mapview.addMarker("layerA", marker)
-    mapview.apply()
-    ```
-=== "iOS"
-    ```swift
-    var marker: NMMarker = NMMarker()
+    mapview.apply()`
+  },
+  {
+    language: "swift",
+    code: `  var marker: NMMarker = NMMarker()
     marker.id = "1234"
     marker.x = 1000.0
     marker.y = 1000.0
@@ -75,8 +78,10 @@ Add a Marker to an existing layer called "LayerA"
     marker.sourceType = NMSourceType.FILESYSTEM
 
     NextomeMapViewHandler.instance.addMarker(layerId: "layerA", marker: marker)
-    NextomeMapViewHandler.instance.apply()
-    ```
+    NextomeMapViewHandler.instance.apply()`
+  }
+]
+}/>
 
 ## Path
 
@@ -110,9 +115,12 @@ Add a Path to an existing layer called "LayerA"
     );
     ```
 -->
-=== "Android"
-    ```kotlin
-    var path: NMPath = NMPath()
+
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `  var path: NMPath = NMPath()
     path.color = NMColor(255, 100, 100)
     path.width = 2.0;
     path.style = NMLineStyle.DOT
@@ -120,11 +128,11 @@ Add a Path to an existing layer called "LayerA"
     path.points = listOf(NMPoint(1000.0, 1000.0), NMPoint(3000.0, 3000.0))
 
     mapview.addPath("layerA", marker)
-    mapview.apply()
-    ```
-=== "iOS"
-    ```swift
-    var path: NMPath = NMPath()
+    mapview.apply()`
+  },
+  {
+    language: "swift",
+    code: `  var path: NMPath = NMPath()
     path.color = NMColor(r: 255, g: 100, b: 100)
     path.width = 2.0;
     path.style = NMLineStyle.DOT
@@ -132,8 +140,10 @@ Add a Path to an existing layer called "LayerA"
     path.points = [NMPoint(x: 1000.0, y: 1000.0), NMPoint(x: 3000.0, y: 3000.0)]
 
     NextomeMapViewHandler.instance.addPath(layerId: "layerA", path:path)
-    NextomeMapViewHandler.instance.apply()
-    ```
+    NextomeMapViewHandler.instance.apply()`
+  }
+]
+}/>
 
 ## Shape
 
@@ -180,9 +190,12 @@ Add a Shape to an existing layer called "LayerA"
     );
     ```
 -->
-=== "Android"
-    ```kotlin
-    var shape: NMShape = NMShape()
+
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `  var shape: NMShape = NMShape()
     shape.id = "ShapeId"
     shape.borderWidth = 3.0
     shape.borderColor = NMColor(100, 255, 255)
@@ -191,11 +204,11 @@ Add a Shape to an existing layer called "LayerA"
     shape.points = listOf(NMPoint(1300.0, 1500.0), NMPoint(3500.0, 3500.0), NMPoint(1300.0,3500.0))
 
     mapview.addShape("layerA", marker)
-    mapview.apply()
-    ```
-=== "iOS"
-    ```swift
-    var shape: NMShape = NMShape()
+    mapview.apply()`
+  },
+  {
+    language: "swift",
+    code: `  var shape: NMShape = NMShape()
     shape.id = "ShapeId"
     shape.borderWidth = 3.0
     shape.borderColor = NMColor(r: 100, g: 255, b: 255)
@@ -204,5 +217,7 @@ Add a Shape to an existing layer called "LayerA"
     shape.points = [NMPoint(x: 1300.0, y: 1500.0), NMPoint(x: 3500.0, y: 3500.0), NMPoint(x: 1300.0, y: 3500.0)]
 
     NextomeMapViewHandler.instance.addShape(layerId: "layerA", shape: shape)
-    NextomeMapViewHandler.instance.apply()
-    ```
+    NextomeMapViewHandler.instance.apply()`
+  }
+]
+}/>

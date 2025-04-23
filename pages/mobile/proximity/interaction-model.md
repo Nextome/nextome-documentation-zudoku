@@ -4,7 +4,7 @@
 It must be set from the portal in the appropriate section.
 
 :::danger
-    Aggiungere un link alla guida appropriata
+    Aggiungere un link alla guida appropriata all'aggiunta di una interazione via Portale
 :::
 
 ## NextomeInteraction
@@ -36,7 +36,6 @@ The `NextomeInteraction` class is described below.
   </TabsContent>
 </Tabs>
 </div>
-
 
 If you need to transport custom informations you can use just genericContent. 
 If you need to specify informations for different languages you can use contents field.

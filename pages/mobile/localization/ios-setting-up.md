@@ -77,9 +77,9 @@ Then it is necessary to configure our Spec Repo.
     :::note
         If you want to use a specified SDK the version, explicitly it like this
         ```swift
-            pod 'NextomeLocalization', '3.0.1'
+            pod 'NextomeLocalization', '{latest_version}'
         ```
-        See all released version [here](../iOS/changelog.md)
+        See latest version at bottom of this page in the section **Latest version**
     :::
 
 7. Install the pods, then open your .xcworkspace file to see the project in Xcode
@@ -144,8 +144,12 @@ code={`let nextomeSdk = NextomeLocalizationSdk.Builder(
     But please notice that this operation is extremely dangerous and should only be made in accordance with the Nextome Team because has an huge impact on the localization's performance.
 :::
 
-## Next steps
-- See [Start Localization](/mobile/localization/basic-features) to use Nextome SDK.
+## Latest version
+
+Latest available version is **3.0.1** released on Mar 04 2025
 
 ## Examples
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel).
+
+## Next steps
+- See [Start Localization](/mobile/localization/basic-features) to use Nextome SDK.

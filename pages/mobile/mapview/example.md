@@ -2,6 +2,257 @@
 
 Below a simple commented example to show how implement and use the Nextome Map View
 
+In this example we suppose to have tiles of 12000 pixel width and 6500 pixel height.
+
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `  class MainActivity : AppCompatActivity() {
+        
+        val mapview: NextomeMapViewHandler = NextomeMapViewHandler()
+        var mapFragment: Fragment? = null
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+
+            mapFragment = mapview.initialize(
+                fragmentManager = supportFragmentManager,
+                viewId = R.id.mapview,
+                this
+            )
+
+            var tile: NMTile = NMTile()
+            tile.show = true
+            tile.name = "Tile1"
+            tile.id = "1234"
+            tile.source = "PATH TO ZIP FILE"
+
+            mapview.setResources(tiles = listOf(tile), zoom = 1, width = 12000, height = 6500)
+
+            lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    mapview.observeEvents().collect { event ->
+                        println(".EVENT -> $event")
+                    }
+                }
+            }
+
+            mapview.setOnMapReady {
+                println("EVENT ON MAP READY")
+                populate()
+            }
+
+            mapview.setOnMapTap {  x, y ->
+                println("EVENT MAP TAP \$x \$y")
+            }
+
+            mapview.setOnMapLongPress {  x, y ->
+                println("EVENT MAP LONG PRESS \$x \$y")
+            }
+
+            mapview.setOnMarkerTap { marker ->
+                println("EVENT MARKER TAP \${marker.id}")
+            }
+        }
+
+        fun destroyMapView() {
+            if(mapFragment != null) {
+                supportFragmentManager.beginTransaction().remove(mapFragment!!).commit()
+                mapFragment = null
+            }
+        }
+
+        fun populate(){
+
+            // Marker placed at position 1000, 1000
+            var marker: NMMarker = NMMarker()
+            marker.id = "image_id"
+            marker.x = 1000.0
+            marker.y = 1000.0
+            marker.height = 30.0
+            marker.width = 30.0
+            marker.source = "PATH TO IMAGE FILE"
+            marker.sourceType = NMSourceType.FILESYSTEM
+
+            // Path described by 2 points from 1000,1000 to 3000,3000
+            var path: NMPath = NMPath()
+            path.color = NMColor(255, 100, 100)
+            path.width = 2.0;
+            path.style = NMLineStyle.DOT
+            path.id = "path_id"
+            path.points = listOf(NMPoint(1000.0, 1000.0), NMPoint(3000.0, 3000.0))
+
+            // Shape like triangle described by 3 points 
+            var shape: NMShape = NMShape()
+            shape.id = "shape_1_id"
+            shape.borderWidth = 3.0
+            shape.borderColor = NMColor(100, 255, 255)
+            shape.fillColor = NMColor(100, 100, 255, 0.23)
+            shape.relative = false
+            shape.points = listOf(NMPoint(1300.0, 1500.0), NMPoint(3500.0, 3500.0), NMPoint(1300.0,3500.0))
+
+            // Shape described as circle setted by radius
+            var shapeCircle: NMShape = NMShape()
+            shapeCircle.id = "shape_2_id"
+            shapeCircle.borderWidth = 3.0
+            shapeCircle.borderColor = NMColor(100, 255, 100)
+            shapeCircle.fillColor = NMColor(255, 100, 255, 0.4)
+            shapeCircle.relative = false
+            shapeCircle.borderStyle = NMLineStyle.DOT
+            shapeCircle.radius = 500.0
+            shapeCircle.x = 4000.0
+            shapeCircle.y = 4000.0
+
+            // Create 2 layer called layerA and layerB and add to them the markers
+            mapview.addLayer("layerA")
+            mapview.addMarker("layerA", marker)
+            mapview.addPath("layerA", path)
+                
+            mapview.addLayer("layerB")
+            mapview.addShape("layerB", shape)
+            mapview.addShape("layerB", shapeCircle)
+
+            // Call apply to see all changes
+            mapview.apply()
+
+            // Hide layerB after 5seconds, and show it again after 10seconds
+            GlobalScope.launch(Dispatchers.Main){
+                delay(5000L)
+
+                mapview.setLayerVisibility("layerB", false)
+                mapview.apply()
+
+                delay(5000L)
+                mapview.setLayerVisibility("laberB", true)
+                mapview.apply()
+            }
+        }
+    }`
+  },
+  {
+    language: "swift",
+    code: `  // In your UIViewController
+    import NextomeMapView
+
+    class ViewController: UIViewController {
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+
+            NextomeMapViewHandler.instance.initialize(onReady: {
+                
+                var vc = NextomeMapViewHandler.instance.getFlutterViewController()
+                self.present(vc!, animated: true)
+                
+                var tile: NMTile = NMTile(name: "Tile1", id: "1234", source: "PATH TO THE .ZIP")
+                NextomeMapViewHandler.instance.setResources(tiles: [tile], zoom: 1, width: 12000, height: 6500)
+            })
+
+            // Subscribe to evetns                
+            NextomeMapViewHandler.instance.setOnMapReady(callback: mapReady)
+            NextomeMapViewHandler.instance.setOnMapTap(callback: mapTap)
+            NextomeMapViewHandler.instance.setOnMapLongPress(callback: mapLongPress)
+            NextomeMapViewHandler.instance.setOnMarkerTap(callback: markerTap)
+        }
+
+        func destroyMap(){
+            NextomeMapViewHandler.instance.destroy(vc: self, onDestroyed: {
+                // Destroyed
+            })
+        }
+
+        // EVENTS -------------->        
+        func mapReady() -> Void {
+            print("CALLBACK MAP IS READY")
+            populate()
+        }
+        
+        func mapTap(x: Double, y: Double) -> Void {
+            print("CALLBACK MAP TAP \(x) \(y)")
+        }
+        
+        func mapLongPress(x: Double, y: Double) -> Void {
+            print("CALLBACK MAP LONG PRESS \(x) \(y)")
+        }
+        
+        func markerTap(marker: NMMarker) -> Void {
+            print("CALLBACK MARKER TAP ON \(marker.id ?? "ID IS NULL")")
+        }
+        // <------------------------
+        
+        func populate() -> Void {
+
+            // Marker placed at position 1000, 1000
+            var marker: NMMarker = NMMarker()
+            marker.id = "image_id"
+            marker.x = 1000.0
+            marker.y = 1000.0
+            marker.height = 30.0
+            marker.width = 30.0
+            marker.source = "PATH TO IMAGE FILE"
+            marker.sourceType = NMSourceType.FILESYSTEM
+
+            // Path described by 2 points from 1000,1000 to 3000,3000
+            var path: NMPath = NMPath()
+            path.color = NMColor(r: 255, g: 100, b: 100)
+            path.width = 2.0;
+            path.style = NMLineStyle.DOT
+            path.id = "path_id"
+            path.points = [NMPoint(x: 1000.0, y: 1000.0), NMPoint(x: 3000.0, y: 3000.0)]
+
+            // Shape like triangle described by 3 points 
+            var shape: NMShape = NMShape()
+            shape.id = "shape_1_id"
+            shape.borderWidth = 3.0
+            shape.borderColor = NMColor(r: 100, g: 255, b: 255)
+            shape.fillColor = NMColor(r: 100, g: 100, b: 255, a: 0.23)
+            shape.relative = false
+            shape.points = [NMPoint(x: 1300.0, y: 1500.0), NMPoint(x: 3500.0, y: 3500.0), NMPoint(x: 1300.0, y: 3500.0)]
+
+            // Shape described as circle setted by radius
+            var shapeCircle: NMShape = NMShape()
+            shapeCircle.id = "shape_2_id"
+            shapeCircle.borderWidth = 3.0
+            shapeCircle.borderColor = NMColor(r: 100, g: 255, b: 100)
+            shapeCircle.fillColor = NMColor(r: 255, g: 100, b: 255, a: 0.4)
+            shapeCircle.relative = false
+            shapeCircle.borderStyle = NMLineStyle.DOT
+            shapeCircle.radius = 500.0
+            shapeCircle.x = 4000.0
+            shapeCircle.y = 4000.0
+
+            // Create 2 layer called layerA and layerB and add to them the markers
+            NextomeMapViewHandler.instance.addLayer(layerId: "layerA")
+            NextomeMapViewHandler.instance.addMarker(layerId: "layerA", marker: marker)
+            NextomeMapViewHandler.instance.addPath(layerId: "layerA", path:path)
+
+            NextomeMapViewHandler.instance.addLayer(layerId: "laberB")
+            NextomeMapViewHandler.instance.addShape(layerId: "laberB", shape: shape)
+            NextomeMapViewHandler.instance.addShape(layerId: "laberB", shape: shapeCircle)
+
+            // Call apply to see all changes
+            NextomeMapViewHandler.instance.apply()
+            
+            // Hide layerB after 5seconds, and show it again after 10seconds
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                NextomeMapViewHandler.instance.setLayerVisibility(layerId: "layerB", show: false)
+                NextomeMapViewHandler.instance.apply()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                NextomeMapViewHandler.instance.setLayerVisibility(layerId: "layerB", show: true)
+                NextomeMapViewHandler.instance.apply()
+            }
+        }
+
+    }`
+  }
+]
+}/>
+
 <!--- 
 === "Dart"
     ```Dart 
@@ -333,247 +584,3 @@ Below a simple commented example to show how implement and use the Nextome Map V
     }
     ```
 -->
-
-In this example we suppose to have tiles of 12000 pixel width and 6500 pixel height.
-
-=== "Android"
-    ```kotlin
-    class MainActivity : AppCompatActivity() {
-        
-        val mapview: NextomeMapViewHandler = NextomeMapViewHandler()
-
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-
-            mapview.initialize(
-                fragmentManager = supportFragmentManager,
-                viewId = R.id.mapview,
-                this
-            )
-
-            var tile: NMTile = NMTile()
-            tile.show = true
-            tile.name = "Tile1"
-            tile.id = "1234"
-            tile.source = "PATH TO ZIP FILE"
-
-            mapview.setResources(tiles = listOf(tile), zoom = 1, width = 12000, height = 6500)
-
-            lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    mapview.observeEvents().collect { event ->
-                        println(".EVENT -> $event")
-                    }
-                }
-            }
-
-            mapview.setOnMapReady {
-                println("EVENT ON MAP READY")
-                populate()
-            }
-
-            mapview.setOnMapTap {  x, y ->
-                println("EVENT MAP TAP $x $y")
-            }
-
-            mapview.setOnMapLongPress {  x, y ->
-                println("EVENT MAP LONG PRESS $x $y")
-            }
-
-            mapview.setOnMarkerTap { marker ->
-                println("EVENT MARKER TAP ${marker.id}")
-            }
-        }
-
-        fun populate(){
-
-            // Marker placed at position 1000, 1000
-            var marker: NMMarker = NMMarker()
-            marker.id = "image_id"
-            marker.x = 1000.0
-            marker.y = 1000.0
-            marker.height = 30.0
-            marker.width = 30.0
-            marker.source = "PATH TO IMAGE FILE"
-            marker.sourceType = NMSourceType.FILESYSTEM
-
-            // Path described by 2 points from 1000,1000 to 3000,3000
-            var path: NMPath = NMPath()
-            path.color = NMColor(255, 100, 100)
-            path.width = 2.0;
-            path.style = NMLineStyle.DOT
-            path.id = "path_id"
-            path.points = listOf(NMPoint(1000.0, 1000.0), NMPoint(3000.0, 3000.0))
-
-            // Shape like triangle described by 3 points 
-            var shape: NMShape = NMShape()
-            shape.id = "shape_1_id"
-            shape.borderWidth = 3.0
-            shape.borderColor = NMColor(100, 255, 255)
-            shape.fillColor = NMColor(100, 100, 255, 0.23)
-            shape.relative = false
-            shape.points = listOf(NMPoint(1300.0, 1500.0), NMPoint(3500.0, 3500.0), NMPoint(1300.0,3500.0))
-
-            // Shape described as circle setted by radius
-            var shapeCircle: NMShape = NMShape()
-            shapeCircle.id = "shape_2_id"
-            shapeCircle.borderWidth = 3.0
-            shapeCircle.borderColor = NMColor(100, 255, 100)
-            shapeCircle.fillColor = NMColor(255, 100, 255, 0.4)
-            shapeCircle.relative = false
-            shapeCircle.borderStyle = NMLineStyle.DOT
-            shapeCircle.radius = 500.0
-            shapeCircle.x = 4000.0
-            shapeCircle.y = 4000.0
-
-            // Create 2 layer called layerA and layerB and add to them the markers
-            mapview.addLayer("layerA")
-            mapview.addMarker("layerA", marker)
-            mapview.addPath("layerA", path)
-                
-            mapview.addLayer("layerB")
-            mapview.addShape("layerB", shape)
-            mapview.addShape("layerB", shapeCircle)
-
-            // Call apply to see all changes
-            mapview.apply()
-
-            // Hide layerB after 5seconds, and show it again after 10seconds
-            GlobalScope.launch(Dispatchers.Main){
-                delay(5000L)
-
-                mapview.setLayerVisibility("layerB", false)
-                mapview.apply()
-
-                delay(5000L)
-                mapview.setLayerVisibility("laberB", true)
-                mapview.apply()
-            }
-        }
-    }
-    ```
-=== "iOS"
-    ```swift
-    // In your AppDelegate
-    class AppDelegate: UIResponder, UIApplicationDelegate {
-        ...
-        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-            ...
-            NextomeMapViewHandler.instance.initialize()
-            ...
-            return true
-        }
-        ...
-    }
-
-    // In your UIViewController
-    import NextomeMapView
-
-    class ViewController: UIViewController {
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-
-            var vc = NextomeMapViewHandler.instance.initializeFlutterViewController()
-            self.present(vc, animated: true)
-            
-            var tile: NMTile = NMTile(name: "Tile1", id: "1234", source: "PATH TO THE .ZIP")
-            NextomeMapViewHandler.instance.setResources(tiles: [tile], zoom: 1, width: 12000, height: 6500)
-            
-            // Subscribe to evetns                
-            NextomeMapViewHandler.instance.setOnMapReady(callback: mapReady)
-            NextomeMapViewHandler.instance.setOnMapTap(callback: mapTap)
-            NextomeMapViewHandler.instance.setOnMapLongPress(callback: mapLongPress)
-            NextomeMapViewHandler.instance.setOnMarkerTap(callback: markerTap)
-        }
-
-        // EVENTS -------------->        
-        func mapReady() -> Void {
-            print("CALLBACK MAP IS READY")
-            populate()
-        }
-        
-        func mapTap(x: Double, y: Double) -> Void {
-            print("CALLBACK MAP TAP \(x) \(y)")
-        }
-        
-        func mapLongPress(x: Double, y: Double) -> Void {
-            print("CALLBACK MAP LONG PRESS \(x) \(y)")
-        }
-        
-        func markerTap(marker: NMMarker) -> Void {
-            print("CALLBACK MARKER TAP ON \(marker.id ?? "ID IS NULL")")
-        }
-        // <------------------------
-        
-        func populate() -> Void {
-
-            // Marker placed at position 1000, 1000
-            var marker: NMMarker = NMMarker()
-            marker.id = "image_id"
-            marker.x = 1000.0
-            marker.y = 1000.0
-            marker.height = 30.0
-            marker.width = 30.0
-            marker.source = "PATH TO IMAGE FILE"
-            marker.sourceType = NMSourceType.FILESYSTEM
-
-            // Path described by 2 points from 1000,1000 to 3000,3000
-            var path: NMPath = NMPath()
-            path.color = NMColor(r: 255, g: 100, b: 100)
-            path.width = 2.0;
-            path.style = NMLineStyle.DOT
-            path.id = "path_id"
-            path.points = [NMPoint(x: 1000.0, y: 1000.0), NMPoint(x: 3000.0, y: 3000.0)]
-
-            // Shape like triangle described by 3 points 
-            var shape: NMShape = NMShape()
-            shape.id = "shape_1_id"
-            shape.borderWidth = 3.0
-            shape.borderColor = NMColor(r: 100, g: 255, b: 255)
-            shape.fillColor = NMColor(r: 100, g: 100, b: 255, a: 0.23)
-            shape.relative = false
-            shape.points = [NMPoint(x: 1300.0, y: 1500.0), NMPoint(x: 3500.0, y: 3500.0), NMPoint(x: 1300.0, y: 3500.0)]
-
-            // Shape described as circle setted by radius
-            var shapeCircle: NMShape = NMShape()
-            shapeCircle.id = "shape_2_id"
-            shapeCircle.borderWidth = 3.0
-            shapeCircle.borderColor = NMColor(r: 100, g: 255, b: 100)
-            shapeCircle.fillColor = NMColor(r: 255, g: 100, b: 255, a: 0.4)
-            shapeCircle.relative = false
-            shapeCircle.borderStyle = NMLineStyle.DOT
-            shapeCircle.radius = 500.0
-            shapeCircle.x = 4000.0
-            shapeCircle.y = 4000.0
-
-            // Create 2 layer called layerA and layerB and add to them the markers
-            NextomeMapViewHandler.instance.addLayer(layerId: "layerA")
-            NextomeMapViewHandler.instance.addMarker(layerId: "layerA", marker: marker)
-            NextomeMapViewHandler.instance.addPath(layerId: "layerA", path:path)
-
-            NextomeMapViewHandler.instance.addLayer(layerId: "laberB")
-            NextomeMapViewHandler.instance.addShape(layerId: "laberB", shape: shape)
-            NextomeMapViewHandler.instance.addShape(layerId: "laberB", shape: shapeCircle)
-
-            // Call apply to see all changes
-            NextomeMapViewHandler.instance.apply()
-            
-            // Hide layerB after 5seconds, and show it again after 10seconds
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                NextomeMapViewHandler.instance.setLayerVisibility(layerId: "layerB", show: false)
-                NextomeMapViewHandler.instance.apply()
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                NextomeMapViewHandler.instance.setLayerVisibility(layerId: "layerB", show: true)
-                NextomeMapViewHandler.instance.apply()
-            }
-        }
-
-    }
-
-
-    ```

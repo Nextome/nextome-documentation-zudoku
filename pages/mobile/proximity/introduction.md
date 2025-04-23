@@ -56,8 +56,19 @@ The major risk with Android is losing Beacon detection if you are outside Beacon
 
 Differently from Android, **iOS operative system support only 20 regions at same time for scanner process**. So when you register your Beacons for proximity, take care of this. Unlike Android, iOS works very well on recognizing beacon regions.
 
-## Android Resources
-[Android Docs](Getting%20Started/android-getting-started.md) | [Changelog](Android/changelog.md) <!--| [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)-->
-
-## iOS Resources
-[iOS Docs](Getting%20Started/ios-getting-started.md) | [Changelog](iOS/changelog.md) <!--| [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)-->
+<div style={{display:"table", width:"100%"}}>
+    <div style={{display:"table-cell", width:"50%", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/mobile_android_icon.png"} width="35px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>Android Resources</h2>
+        <p>
+        [Android Docs](/mobile/proximity/android-setting-up) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel) <img src={"/assets/github-icon-logo.png"} width="18px" style={{display:"inline"}}/> 
+        </p>
+    </div>
+    <div style={{display:"table-cell", width:"50%", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/mobile_ios_icon.png"} width="35px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>iOS Resources</h2>
+        <p>
+        [iOS Docs](/mobile/proximity/ios-setting-up) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel) <img src={"/assets/github-icon-logo.png"} width="18px" style={{display:"inline"}}/> 
+        </p>
+    </div>
+</div> 

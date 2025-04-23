@@ -41,46 +41,58 @@ The `NMLayer` class is described below
 
 Create a new layer to hold a group of markers.  
 
-=== "Android"
-    ```kotlin
-    mapview.addLayer(layerId: "LayerA")
-    mapview.apply()
-    ```
-=== "iOS"
-    ```swift
-    NextomeMapViewHandler.instance.addLayer(layerId: "LayerA")
-    NextomeMapViewHandler.instance.apply()
-    ```
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `mapview.addLayer(layerId: "LayerA")
+mapview.apply()`
+  },
+  {
+    language: "swift",
+    code: `NextomeMapViewHandler.instance.addLayer(layerId: "LayerA")
+NextomeMapViewHandler.instance.apply()`
+  }
+]
+}/>
 
 ## Set Layer visibility
 
 Set the visibility of a layer
 
-=== "Android"
-    ```kotlin
-    mapview.setLayerVisibility(layerId: "LayerA", show: false)
-    mapview.apply()
-    ```
-=== "iOS"
-    ```swift
-    NextomeMapViewHandler.instance.setLayerVisibility(layerId: "LayerA", show: false)
-    NextomeMapViewHandler.instance.apply()
-    ```
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `mapview.setLayerVisibility(layerId: "LayerA", show: false)
+mapview.apply()`
+  },
+  {
+    language: "swift",
+    code: `NextomeMapViewHandler.instance.setLayerVisibility(layerId: "LayerA", show: false)
+NextomeMapViewHandler.instance.apply()`
+  }
+]
+}/>
 
 ## Clear a Layer
 
 Delete all markers presents into the layer
 
-=== "Android"
-    ```kotlin
-    mapview.clearLayer(layerId: "LayerA")
-    mapview.apply()
-    ```
-=== "iOS"
-    ```swift
-    NextomeMapViewHandler.instance.clearLayer(layerId: "LayerA")
-    NextomeMapViewHandler.instance.apply()
-    ```
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `mapview.clearLayer(layerId: "LayerA")
+mapview.apply()`
+  },
+  {
+    language: "swift",
+    code: `NextomeMapViewHandler.instance.clearLayer(layerId: "LayerA")
+NextomeMapViewHandler.instance.apply()`
+  }
+]
+}/>
 
 ## Example usage
 

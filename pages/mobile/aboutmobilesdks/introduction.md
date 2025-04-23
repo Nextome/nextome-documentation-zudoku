@@ -35,15 +35,28 @@ Those credentials are available from your profile, in the Apps section.
 
 ## Start with Nextome SDKs
 
-:::danger 
-    AGGIORNARE I LINK SOTTO
-:::
+<br/><br/>
 
-### LOCALIZATION 
-[Android Docs](Getting%20Started/android-getting-started.md) | [iOS Docs](Getting%20Started/android-getting-started.md)
-
-### PROXIMITY
-[Android Docs](Getting%20Started/android-getting-started.md) | [iOS Docs](Getting%20Started/android-getting-started.md)
-
-### MAPVIEW
-[Android Docs](Getting%20Started/android-getting-started.md) | [iOS Docs](Getting%20Started/android-getting-started.md)
+<div style={{display:"table", width:"100%"}}>
+    <div style={{display:"table-cell", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/simple_localization.png"} width="155px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>Localization</h2>
+        <p>
+        [Explore SDK](/mobile/localization/introduction)
+        </p>
+    </div>
+    <div style={{display:"table-cell", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/simple_proximity.png"} width="155px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>Proximity</h2>
+        <p>
+        [Explore SDK](/mobile/proximity/introduction)
+        </p>
+    </div>
+    <div style={{display:"table-cell", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/simple_mapview.png"} width="155px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>MapView</h2>
+        <p>
+        [Explore SDK](/mobile/mapview/introduction)
+        </p>
+    </div>
+</div> 

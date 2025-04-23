@@ -32,8 +32,19 @@ It consist of different types:
 - `Path Marker`, a marker that represents a path with a list of points specified and some other customizations
 - `Shape Marker`, a marker that represents a polygon with a list of point specified and some other customizations
 
-## Android Resources
-[Android Docs](./integration.md) | [Changelog](./Changelog/changelog-android.md) | [Example Code](./example.md)
-
-## iOS Resources
-[iOS Docs](./integration.md#ios-integraton) | [Changelog](./Changelog/changelog-ios.md) | [Example Code](./example.md)
+<div style={{display:"table", width:"100%"}}>
+    <div style={{display:"table-cell", width:"50%", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/mobile_android_icon.png"} width="35px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>Android Resources</h2>
+        <p>
+        [Android Docs](/mobile/mapview/android-setting-up) | [Example Code](/mobile/mapview/example)
+        </p>
+    </div>
+    <div style={{display:"table-cell", width:"50%", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/mobile_ios_icon.png"} width="35px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>iOS Resources</h2>
+        <p>
+        [iOS Docs](/mobile/mapview/ios-setting-up) | [Example Code](/mobile/mapview/example)
+        </p>
+    </div>
+</div> 

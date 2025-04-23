@@ -56,25 +56,30 @@ The `NMTile` class is described below
         source: 'assets/tile_package.zip',
     );
     ``` --> 
-=== "Android"
-    ```kotlin
-    var tile: NMTile = NMTile()
+
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `var tile: NMTile = NMTile()
     tile.show = true
     tile.name = "Tile1"
     tile.id = "2314"
     tile.source = "PATH TO ZIP FILE"
 
-    mapview.setResources(tiles = listOf(tile), zoom = 1, width = 2000, height = 1000)
-    ```
-=== "iOS"
-    ```swift
-    var tile: NMTile = NMTile(
+    mapview.setResources(tiles = listOf(tile), zoom = 1, width = 2000, height = 1000)`
+  },
+  {
+    language: "swift",
+    code: `var tile: NMTile = NMTile(
         name: "Tile1", 
         id: "1234", 
         source:  "PATH TO ZIP FILE")
 
-    NextomeMapViewHandler.instance.setResources(tiles: [tile], zoom: 1, width: 2000, height: 1000)
-    ```
+    NextomeMapViewHandler.instance.setResources(tiles: [tile], zoom: 1, width: 2000, height: 1000)`
+  }
+]
+}/>
 
 ## Show/hide an existing Tile
 
@@ -83,13 +88,18 @@ The `NMTile` class is described below
     NOT IMPLEMENTED IN ANDROID AND IOS
     ```
 -->
-=== "Android"
-    ```kotlin
-    mapview.setTileVisibility(tileId: String, show: Boolean)
-    mapview.apply()
-    ```
-=== "iOS"
-    ```swift
-    NextomeMapViewHandler.instance.setTileVisibility(tileId: String, show: Bool)
-    NextomeMapViewHandler.instance.apply()
-    ```
+
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `mapview.setTileVisibility(tileId: String, show: Boolean)
+mapview.apply()`
+  },
+  {
+    language: "swift",
+    code: `NextomeMapViewHandler.instance.setTileVisibility(tileId: String, show: Bool)
+NextomeMapViewHandler.instance.apply()`
+  }
+]
+}/>

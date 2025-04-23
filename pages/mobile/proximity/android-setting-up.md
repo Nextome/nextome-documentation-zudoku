@@ -86,7 +86,9 @@
 ]
 }/>
 
-Check latest released version [here](../Android/changelog.md)
+    :::note
+        See latest version at bottom of this page in the section **Latest version**
+    :::
 
 ## Required permissions
 To run, Nextome SDK requires the following permissions:
@@ -166,6 +168,10 @@ class DemoProximityApplication: Application() {
 }`
 }/>
 
+## Latest version
+
+Latest available version is **1.0.2** released on Mar 04 2025
+
 ## Next steps
 
-- See [Start Proximity](../Basic%20Features/start-proximity.md) to use Nextome Proximity SDK.
+- See [Start Proximity](/mobile/proximity/basic-features) to use Nextome Proximity SDK.

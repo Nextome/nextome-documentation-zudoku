@@ -1,7 +1,5 @@
 # Android setting up
 
-A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel). Run the MapActivity to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using OpenStreetMap for outdoor and Nextome Flutter Map for indoor.
-
 ## Prerequisites
 - Your project has min SDK version >= 24;
 - Have working credentials for our Artifactory repository;
@@ -82,7 +80,9 @@ A full working example app is available on [this repository](https://github.com/
 ]
 }/>
 
-    Check latest released version [here](../Android/changelog.md)
+    :::note
+        See latest version at bottom of this page in the section **Latest version**
+    :::
 
 ## Required permissions
 To run, Nextome SDK requires the following permissions:
@@ -139,6 +139,10 @@ code={`nextomeSdk = NextomeLocalizationSdk(
     However, we strongly suggest to consult Nextome team before, since they can
     degrade sdk performances and cause phone battery drain.
 :::
+
+## Latest version
+
+Latest available version is **3.0.1** released on Mar 03 2025
 
 ## Next steps
 

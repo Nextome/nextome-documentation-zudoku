@@ -8,6 +8,12 @@
    - Minimum deployment: iOS 13.2
 - Have working credentials for our Artifactory repository
 
+:::note{title="Get credentials"}
+    
+    For **Artifactory credentials** refer here [Get our SDKs](/mobile/aboutmobilesdks/introduction#get-our-sdks) for more informations.
+ 
+:::
+
 ## How to include
 
 NextomeMapView is distributed with [Cocoapods](https://guides.cocoapods.org/) and artifactory. Be sure to have CocoaPods installed, or follow [this guide](https://guides.cocoapods.org/using/getting-started.html) to install it.
@@ -52,6 +58,9 @@ Then it is necessary to configure our private Spec Repo.
         pod 'NextomeMapView_Release', '{last_version}'
     end
     ```
+    :::note
+        See latest version at bottom of this page in the section **Latest version**
+    :::
 
     :::warning
         The **Release** dependency will not work properly in the simulator. The app will compile but the map will not be visible
@@ -65,6 +74,10 @@ Then it is necessary to configure our private Spec Repo.
 
 6. Open your `xcworkspace` file and start to use NextomeMapView
 
+## Latest version
+
+Latest available version is **2.0.23.1** released on Apr 09 2025
+
 ### Next steps
 
-- See [Map-usage](./Usage/initialize.md) to use Nextome MapView component.
+- See [Map-usage](/mobile/mapview/usage/controller) to use Nextome MapView component.

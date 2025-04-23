@@ -59,11 +59,6 @@ const config = {
           },
           {
             type: "doc",
-            label: "Setting up",
-            id: "mobile/localization/setting-up"
-          },
-          {
-            type: "doc",
             label: "Android Setting-up",
             id: "mobile/localization/android-setting-up"
           },
@@ -209,6 +204,11 @@ const config = {
                 type: "doc",
                 label: "Enums",
                 id: "mobile/mapview/usage/enums"
+              },
+              {
+                type: "doc",
+                label: "Destroy",
+                id: "mobile/mapview/usage/destroy"
               }
             ]
           },
