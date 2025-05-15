@@ -171,7 +171,7 @@ class AppDelegate: UIApplicationDelegate {
 
 ## Latest version
 
-Latest available version is **1.0.2** released on Mar 04 2025
+Latest available version is **1.0.3** released on May 14 2025
 
 ## Next steps
 - See [Start Proximity](/mobile/proximity/basic-features) to use Nextome Proximity SDK.

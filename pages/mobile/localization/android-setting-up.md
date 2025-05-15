@@ -142,7 +142,7 @@ code={`nextomeSdk = NextomeLocalizationSdk(
 
 ## Latest version
 
-Latest available version is **3.0.1** released on Mar 03 2025
+Latest available version is **3.0.2** released on May 14 2025
 
 ## Next steps
 

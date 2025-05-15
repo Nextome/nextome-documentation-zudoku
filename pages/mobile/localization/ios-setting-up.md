@@ -146,7 +146,7 @@ code={`let nextomeSdk = NextomeLocalizationSdk.Builder(
 
 ## Latest version
 
-Latest available version is **3.0.1** released on Mar 04 2025
+Latest available version is **3.0.2** released on May 14 2025
 
 ## Examples
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel).

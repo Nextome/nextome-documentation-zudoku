@@ -170,7 +170,7 @@ class DemoProximityApplication: Application() {
 
 ## Latest version
 
-Latest available version is **1.0.2** released on Mar 04 2025
+Latest available version is **1.0.3** released on May 14 2025
 
 ## Next steps
 
