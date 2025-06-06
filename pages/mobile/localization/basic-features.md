@@ -5,6 +5,7 @@ In this section you can find some basic use of the Localization SDK such as:
 - Stop localization
 - Observe the SDK status
 - Observe the user position
+- Observe the downloaded data
 - Observe errors
 
 ## Start localization
@@ -383,6 +384,36 @@ Nextome SDK offers an observable to listen to user position updates:
 </Tabs>
 </div>
 
+## Observe the downloaded data
+Nextome SDK offers an observable to listen when venue data has been downloaded.
+In same scenario you are located far from the beacons and the indoor localization can't be done, but you need to know the venue data.
+If indoor localization is running, the venue data is provided by LocalizationRunningState, while outdoor instead, GPS scanner is running and searching for nearest venue.
+When nearest venue is found, it download the venue data the observer return the results.
+
+<MultilangCodeTab content={
+[
+  {
+    language: "kotlin",
+    code: `lifecycleScope.launch {
+    viewModel.nextomeSdk.getDownloadedVenueDataObservable().collect {
+      Log.i(TAG, "Downloaded data \${it}")
+    }
+  }`
+  },
+  {
+    language: "swift",
+    code: `nextomeSdk.getDownloadedVenueDataObservable().watch(block: { venueData in
+    print("Downloaded data is \(venueData)")
+  })`
+  }
+]
+}/>
+
+    :::warning{title="Downloaded data"}
+      The downloaded data is based on the GPS position. If indoor localization is determined first, the downloaded data observer will not be triggered, as a venue has already been found.
+      If beacon-based localization is lost, the system will resume scanning for nearby venues using both beacon detection and GPS.
+      Once a venue is found via GPS, the GPS search is paused until the localization state returns to SearchVenueState.
+    :::
 
 ## Observe errors
 Nextome SDK uses different types of exceptions to report errors:
@@ -445,10 +476,6 @@ It is possible to observe errors using `getErrorsObservable()`:
 - Visit [Nextome map integration](nextome-map-integration.md) if you want to use our library to display the indoor map.
 
 ## Examples
-
-:::danger
-    TODO - Le white label utilizzando ancora la vecchia implementazione della mapview. Bisogna aggiornale a quella nuova.
-:::
 
 A full working example app is available on [iOS](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel) and [android](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.

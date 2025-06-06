@@ -2,7 +2,7 @@
 
 # Introduction
 
-![Nextome Android SDK Cover](/assets/cover.png)
+![Nextome Android SDK Cover](/assets/2025-cover-SDK_proximity.png)
 
 Our **Proximity Software Development Kit** for Android and iOS allows you to create smart applications that notify you when your smartphone enter inside or exit outside a Beacon area.
 Is very simple and easy to integrate and it works even if your application has been closed for a long time.

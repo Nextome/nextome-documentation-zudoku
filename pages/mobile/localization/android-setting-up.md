@@ -150,9 +150,5 @@ Latest available version is **3.0.2** released on May 14 2025
 
 ## Examples
 
-:::danger
-    TODO - Le white label utilizzando ancora la vecchia implementazione della mapview. Bisogna aggiornale a quella nuova.
-:::
-
 A full working example app is available on [this repository](https://github.com/Nextome/nextome-phoenix-android-whitelabel).
 Run the `MapActivity` to see Nextome Sdk in action. It also contains a seamless outdoor/indoor map integration using *OpenStreetMap* for outdoor and *Nextome Flutter Map* for indoor.

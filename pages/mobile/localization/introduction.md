@@ -1,7 +1,7 @@
 
 # Introduction
 
-![Nextome Android SDK Cover](/assets/cover.png)
+![Nextome Android SDK Cover](/assets/2025-cover-SDK_location.png)
 
 Our software development kit opens the door to maximum customization and data intelligence, providing location and navigation capabilities, a list of points of interest on the map, and management of location-related events.
 

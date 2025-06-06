@@ -1,5 +1,7 @@
 # Introduction
 
+![Nextome Android SDK Cover](/assets/2025-cover-SDK_maps.png)
+
 The Nextome MapView is the basic UI component used to show the map and the informations on a them.
 
 The Nextome MapView component is build on top of [flutter_map](https://pub.dev/packages/flutter_map) plugin.
