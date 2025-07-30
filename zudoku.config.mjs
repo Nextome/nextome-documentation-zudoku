@@ -1,6 +1,10 @@
 /** @type {import('zudoku').ZudokuConfig} */
 import CenteredImage from './src/CenteredImage';
-import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill"
+import CustomCodeBlock from './src/CustomCodeBlock';
+import {MultilangCodeTab} from './src/MultilangCodeTab';
+import {ExperimentalBanner} from "./src/ExperimentalBanner";
+import {TagTrackingPill, SmartphoneTrackingPill} from "./src/TrackingPill";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "zudoku/ui/Tabs";
 
 const config = {
   topNavigation: [
@@ -41,18 +45,179 @@ const config = {
     mobile: [
       {
         type: "category",
+        label: "About Mobile SDKs",
+        items: ["mobile/aboutmobilesdks/introduction"]
+      },
+      {
+        type: "category",
         label: "Nextome Localization SDK",
-        items: ["mobile/localization/introduction"]
+        items: [
+          {
+            type: "doc",
+            label: "Introduction",
+            id: "mobile/localization/introduction"
+          },
+          {
+            type: "doc",
+            label: "Android Setting-up",
+            id: "mobile/localization/android-setting-up"
+          },
+          {
+            type: "doc",
+            label: "iOS Setting-up",
+            id: "mobile/localization/ios-setting-up"
+          },
+          {
+            type: "doc",
+            label: "Basic features",
+            id: "mobile/localization/basic-features"
+          },
+          {
+            type: "category",
+            label: "Other features",
+            items: [
+              {
+                type: "doc",
+                label: "Events",
+                id: "mobile/localization/other-features/events"
+              },
+              {
+                type: "doc",
+                label: "Force venue",
+                id: "mobile/localization/other-features/force-venue"
+              },
+              {
+                type: "doc",
+                label: "Initial resources",
+                id: "mobile/localization/other-features/initial-resources"
+              },
+              {
+                type: "doc",
+                label: "Navigation",
+                id: "mobile/localization/other-features/navigation"
+              },
+              {
+                type: "doc",
+                label: "Venue Data",
+                id: "mobile/localization/other-features/venue-data"
+              },
+              {
+                type: "doc",
+                label: "Override Settings",
+                id: "mobile/localization/other-features/override-settings"
+              },
+              {
+                type: "doc",
+                label: "Use in background",
+                id: "mobile/localization/other-features/use-background"
+              },
+            ]
+          }
+        ]
       },
       {
         type: "category",
         label: "Nextome Proximity SDK",
-        items: ["mobile/proximity/introduction"]
+        icon: "flask-conical",
+        items: [
+          {
+            type: "doc",
+            label: "Introduction",
+            id: "mobile/proximity/introduction"
+          },
+          {
+            type: "doc",
+            label: "Android Setting-up",
+            id: "mobile/proximity/android-setting-up"
+          },
+          {
+            type: "doc",
+            label: "iOS Setting-up",
+            id: "mobile/proximity/ios-setting-up"
+          },
+          {
+            type: "doc",
+            label: "Basic features",
+            id: "mobile/proximity/basic-features"
+          },
+          {
+            type: "doc",
+            label: "Interaction model",
+            id: "mobile/proximity/interaction-model"
+          },
+        ]
       },
       {
         type: "category",
         label: "Nextome Map View",
-        items: ["mobile/mapview/introduction"]
+        items: [
+          {
+            type: "doc",
+            label: "Introduction",
+            id: "mobile/mapview/introduction"
+          },
+          {
+            type: "doc",
+            label: "Android setting-up",
+            id: "mobile/mapview/android-setting-up"
+          },
+          {
+            type: "doc",
+            label: "iOS setting-up",
+            id: "mobile/mapview/ios-setting-up"
+          },
+          {
+            type: "category",
+            label: "Usage",
+            items: [
+              {
+                type: "doc",
+                label: "The Controller",
+                id: "mobile/mapview/usage/controller"
+              }, 
+              {
+                type: "doc",
+                label: "Initialize",
+                id: "mobile/mapview/usage/initialize"
+              }, 
+              {
+                type: "doc",
+                label: "Events",
+                id: "mobile/mapview/usage/events"
+              },     
+              {
+                type: "doc",
+                label: "Tiles",
+                id: "mobile/mapview/usage/manage-tiles"
+              },          
+              {
+                type: "doc",
+                label: "Layers",
+                id: "mobile/mapview/usage/manage-layers"
+              },    
+              {
+                type: "doc",
+                label: "Markers",
+                id: "mobile/mapview/usage/manage-markers"
+              },          
+              {
+                type: "doc",
+                label: "Enums",
+                id: "mobile/mapview/usage/enums"
+              },
+              {
+                type: "doc",
+                label: "Destroy",
+                id: "mobile/mapview/usage/destroy"
+              }
+            ]
+          },
+          {
+            type: "doc",
+            label: "Complete Example",
+            id: "mobile/mapview/example"
+          }
+        ]
       },
     ],
     api:[
@@ -129,7 +294,7 @@ const config = {
       }
   },
   mdx: {
-    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill },
+    components: { CenteredImage, SmartphoneTrackingPill, TagTrackingPill, Tabs, TabsContent, TabsList, TabsTrigger, CustomCodeBlock, ExperimentalBanner, MultilangCodeTab},
   },
   page: {
     logo: {

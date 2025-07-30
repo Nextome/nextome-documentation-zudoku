@@ -1,10 +1,8 @@
----
-title: Introduction
-hide:
-  - footer
----
+<ExperimentalBanner functionalityName="Proximity SDK"/>
 
-![Nextome Android SDK Cover](/assets/cover.png)
+# Introduction
+
+![Nextome Android SDK Cover](/assets/2025-cover-SDK_proximity.png)
 
 Our **Proximity Software Development Kit** for Android and iOS allows you to create smart applications that notify you when your smartphone enter inside or exit outside a Beacon area.
 Is very simple and easy to integrate and it works even if your application has been closed for a long time.
@@ -33,8 +31,9 @@ In our Portal, you can create an **Interaction** to define the behavior of proxi
 
 Android and iOS operative system, adopts some rescritions on Bluetooth usage in background to preserve battery life. Each OS have different behaviors about that.
 
-!!! warning "Both platform, Region limitation"
+:::warning{title="Both platform, region limitation"}
     In our SDK, **an area is defined by UUID Beacon attribute only** so, if 2 beacon are installed so closely and their signal area intersects each other, the operative system will fire 1 Enter Region only. If the signal of first catched beacon is lost and the signal of second beacon is still receiving, the operative system will translate this as "ok, you are still in the region so nothing changes for me", this means that no Region Event will be fired.
+:::
 
 ### Android limitations
 
@@ -45,8 +44,9 @@ The Bluetooth background service has a huge limit instead. Starting from Android
 Therefore Bluetooth scanner is active for a few seconds every ~15 minutes. In this interval it searches for nearby Bluetooth devices. 
 **So, always keep in mind that timely recognition of beacons is not guaranteed with Android.**
 
-!!! info "Check what you can do to prevent Android kill action"
+:::info{title="Check what you can do to prevent Android kill action"}
     If you want to deactivate some os limitation on the smartphone, please check [Don't kill my app](https://dontkillmyapp.com/) website.
+:::
 
 An alternative way to avoid this limitation is to use an **Android Foreground Service** which allows you to constantly listen to the beacons (it is called Ranging) but it is a heavy process with an high battery power consumption, and the user is constantly notified that the service is running and can stop at any time. At today, foreground service is not supported yet in our Proximity SDK but it is planned.
 
@@ -56,8 +56,19 @@ The major risk with Android is losing Beacon detection if you are outside Beacon
 
 Differently from Android, **iOS operative system support only 20 regions at same time for scanner process**. So when you register your Beacons for proximity, take care of this. Unlike Android, iOS works very well on recognizing beacon regions.
 
-## Android Resources
-[Android Docs](Getting%20Started/android-getting-started.md) | [Changelog](Android/changelog.md) <!--| [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel)-->
-
-## iOS Resources
-[iOS Docs](Getting%20Started/ios-getting-started.md) | [Changelog](iOS/changelog.md) <!--| [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel)-->
+<div style={{display:"table", width:"100%"}}>
+    <div style={{display:"table-cell", width:"50%", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/mobile_android_icon.png"} width="35px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>Android Resources</h2>
+        <p>
+        [Android Docs](/mobile/proximity/android-setting-up) | [Example Project](https://github.com/Nextome/nextome-phoenix-android-whitelabel) <img src={"/assets/github-icon-logo.png"} width="18px" style={{display:"inline"}}/> 
+        </p>
+    </div>
+    <div style={{display:"table-cell", width:"50%", backgroundColor:"transparent", textAlign:"center"}}>
+        <img src={"/assets/mobile_ios_icon.png"} width="35px" style={{display:"block", margin:"0px auto 0px"}}/>
+        <h2 style={{margin:"0px"}}>iOS Resources</h2>
+        <p>
+        [iOS Docs](/mobile/proximity/ios-setting-up) | [Example Project](https://github.com/Nextome/nextome-phoenix-iOS-whitelabel) <img src={"/assets/github-icon-logo.png"} width="18px" style={{display:"inline"}}/> 
+        </p>
+    </div>
+</div> 
